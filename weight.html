@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>UNIT CONVERTER</h1>
+
+    <nav>
+        <a href="/">Length</a>
+        <a href="/weight">Weight</a>
+        <a href="/Temp">Temperature</a>
+    </nav>
+
+    <form action="/weight" method="POST" id="form">
+        <label for="value">Enter weight to convert</label>
+        <br>
+        <input type="number" name="value" id="value" required>
+        <br>
+        <label for="convertFrom">Unit to convert from</label>
+        <br>
+        <select name="convertFrom" id="convertFrom" required>
+            <option value="">--Please choose an option--</option>
+            <option value="milligram">Milligram</option>
+            <option value="gram">Gram</option>
+            <option value="kilogram">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+        <br>
+        <label for="convertTo">Unit to convert to</label>
+        <br>
+        <select name="convertTo" id="convertTo" required>
+            <option value="">--Please choose an option--</option>
+            <option value="milligram">Milligram</option>
+            <option value="gram">Gram</option>
+            <option value="kilogram">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+        <br>
+        <button type="submit">Convert</button>
+    </form>
+</body>
+</html>
