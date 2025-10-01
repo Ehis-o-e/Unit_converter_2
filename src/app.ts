@@ -51,6 +51,20 @@ function conversion(value: number, fromUnit: string, toUnit: string, type: 'leng
     return (value * fromFactor!) / toFactor!;
 }
 
+function handleConversion(
+    req: express.Request, 
+    res: express.Response, 
+    type: 'length' | 'weight' | 'temperature',
+    redirectPath: string
+) {
+    try {
+        const {value, convertFrom, convertTo} = req.body;
+        const result = conversion(parseFloat(value), convertFrom, convertTo, type);
+        res.send(`<h1>Converted Value: ${result}</h1><a href="${redirectPath}">Go Back</a>`);
+    } catch (error) {
+        res.status(400).send(`<h1>Error: ${error instanceof Error ? error.message : 'Unknown error'}</h1><a href="${redirectPath}">Go Back</a>`);
+    }
+}
 
 app.get("/", (req, res) => {
     res.sendFile("index.html", { root: process.cwd() });
@@ -63,20 +77,14 @@ app.get("/Temp", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-    const {value, convertFrom, convertTo} = req.body;
-    const result = conversion(parseFloat(value), convertFrom, convertTo, 'length');
-    res.send(`<h1>Converted Value: ${result}</h1><a href="/">Go Back</a>`);
+    handleConversion(req, res, 'length', '/');
 });
 
 app.post("/weight", (req, res) => {
-    const {value, convertFrom, convertTo} = req.body;
-    const result = conversion(parseFloat(value), convertFrom, convertTo, 'weight');
-    res.send(`<h1>Converted Value: ${result}</h1><a href="/weight">Go Back</a>`);
+    handleConversion(req, res, 'weight', '/weight');
 });
 app.post("/Temp", (req, res) => {
-    const {value, convertFrom, convertTo} = req.body;
-    const result = conversion(parseFloat(value), convertFrom, convertTo, 'temperature');
-    res.send(`<h1>Converted Value: ${result}</h1><a href="/Temp">Go Back</a>`);
+    handleConversion(req, res, 'temperature', '/Temp');
 });
 
 app.listen(PORT, () => {
