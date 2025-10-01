@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>UNIT CONVERTER</h1>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <p class="subtitle">Convert units quickly and easily</p>
 
-    <nav>
-        <a href="/">Length</a>
-        <a href="/weight">Weight</a>
-        <a href="/Temp">Temperature</a>
-    </nav>
+        <nav>
+            <a href="/">Length</a>
+            <a href="/weight">Weight</a>
+            <a href="/Temp" class="active">Temperature</a>
+        </nav>
 
-    <form action="/Temp" method="POST" id="form">
-        <label for="value">Enter Temperature to convert</label>
-        <br>
-        <input type="number" name="value" id="value" required>
-        <br>
-        <label for="convertFrom">Unit to convert from</label>
-        <br>
-        <select name="convertFrom" id="convertFrom" required>
-            <option value="">--Please choose an option--</option>
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
-            <option value="kelvin">Kelvin</option>
-        </select>
-        <br>
-        <label for="convertTo">Unit to convert to</label>
-        <br>
-        <select name="convertTo" id="convertTo" required>
-            <option value="">--Please choose an option--</option>
-            <option value="celsius">Celsius</option>
-            <option value="fahrenheit">Fahrenheit</option>
-            <option value="kelvin">Kelvin</option>
-        </select>
-        <br>
-        <button type="submit">Convert</button>
-    </form>
+        <form action="/Temp" method="POST">
+            <div class="form-group">
+                <label for="value">Value to Convert</label>
+                <input type="number" name="value" id="value" step="any" placeholder="Enter value" required>
+            </div>
+
+            <div class="form-group">
+                <label for="convertFrom">From</label>
+                <select name="convertFrom" id="convertFrom" required>
+                    <option value="">Select unit...</option>
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="convertTo">To</label>
+                <select name="convertTo" id="convertTo" required>
+                    <option value="">Select unit...</option>
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="kelvin">Kelvin (K)</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+    </div>
 </body>
 </html>

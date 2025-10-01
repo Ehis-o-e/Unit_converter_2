@@ -3,51 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>UNIT CONVERTER</h1>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <p class="subtitle">Convert units quickly and easily</p>
 
-    <nav>
-        <a href="/">Length</a>
-        <a href="/weight">Weight</a>
-        <a href="/Temp">Temperature</a>
-    </nav>
+        <nav>
+            <a href="/" class="active">Length</a>
+            <a href="/weight">Weight</a>
+            <a href="/Temp">Temperature</a>
+        </nav>
 
-    <form action="/" method="POST" id="form">
-        <label for="value">Enter Length to convert</label>
-        <br>
-        <input type="number" name="value" id="value" required>
-        <br>
-        <label for="convertFrom">Unit to convert from</label>
-        <br>
-        <select name="convertFrom" id="convertFrom" required>
-            <option value="">--Please choose an option--</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="meter">Meter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="inch">Inch</option>
-            <option value="foot">Foot</option>
-            <option value="yard">Yard</option>
-            <option value="mile">Mile</option>
-            <option value="millimeter">Millimeter</option>
-        </select>
-        <br>
-        <label for="convertTo">Unit to convert to</label>
-        <br>
-        <select name="convertTo" id="convertTo" required>
-             <option value="">--Please choose an option--</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="meter">Meter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="inch">Inch</option>
-            <option value="foot">Foot</option>
-            <option value="yard">Yard</option>
-            <option value="mile">Mile</option>
-            <option value="millimeter">Millimeter</option>
-        </select>
-        <br>
-        <button type="submit">Convert</button>
-    </form>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="value">Value to Convert</label>
+                <input type="number" name="value" id="value" step="any" placeholder="Enter value" required>
+            </div>
+
+            <div class="form-group">
+                <label for="convertFrom">From</label>
+                <select name="convertFrom" id="convertFrom" required>
+                    <option value="">Select unit...</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="mile">Mile (mi)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="convertTo">To</label>
+                <select name="convertTo" id="convertTo" required>
+                    <option value="">Select unit...</option>
+                    <option value="meter">Meter (m)</option>
+                    <option value="kilometer">Kilometer (km)</option>
+                    <option value="centimeter">Centimeter (cm)</option>
+                    <option value="millimeter">Millimeter (mm)</option>
+                    <option value="mile">Mile (mi)</option>
+                    <option value="yard">Yard (yd)</option>
+                    <option value="foot">Foot (ft)</option>
+                    <option value="inch">Inch (in)</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+    </div>
 </body>
 </html>
