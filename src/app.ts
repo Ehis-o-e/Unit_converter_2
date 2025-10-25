@@ -2,7 +2,7 @@ import express from 'express';
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('.')); 
+app.use(express.static('.'));  
 
 const PORT = 3000;
 
