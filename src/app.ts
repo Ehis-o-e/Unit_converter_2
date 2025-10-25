@@ -4,7 +4,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('.'));  
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const conversionFactors: { [key: string]: { [key: string]: number } } = {
     length: {
